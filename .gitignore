@@ -69,4 +69,6 @@ fabric.properties
 ### Intellij Patch ###
 *.iml
 
+.idea
+
 sbt.bat
