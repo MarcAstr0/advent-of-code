@@ -13,4 +13,9 @@ class DayTwoSpec  extends FlatSpec with Matchers {
     dayTwo.partOne("1x1x10") shouldEqual 43
   }
 
+  "partTwo()" should "calculate the examples correctly" in {
+    dayTwo.partTwo("2x3x4") shouldEqual 34
+    dayTwo.partTwo("1x1x10") shouldEqual 14
+  }
+
 }
