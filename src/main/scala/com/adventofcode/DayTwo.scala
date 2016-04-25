@@ -16,6 +16,17 @@ class DayTwo {
 
     2*side1 + 2*side2 + 2*side3 + List(side1, side2, side3).min
   }
+
+  def partTwo(dimensions: String): Int = {
+    val l = dimensions.split("x")(0).toInt
+    val w = dimensions.split("x")(1).toInt
+    val h = dimensions.split("x")(2).toInt
+
+    val ribbon = (List(l,w,h) diff List(List(l,w,h).max)).map(x => 2*x).foldLeft(0)((a,b) => a+b)
+    val bow = List(l,w,h).foldLeft(1)((a,b) => a*b)
+
+    ribbon + bow
+  }
 }
 
 object DayTwo {
@@ -25,7 +36,10 @@ object DayTwo {
   def main(args: Array[String]): Unit = {
     val dayTwo = new DayTwo
     println("--- Day 2: I Was Told There Would Be No Math ---")
-    val result = (for(line <- input) yield {dayTwo.partOne(line)}).foldLeft(0)((a,b) => a+b)
-    println("Answer to Part One is: " + result)
+    val inputList = (for(line <- input) yield line).toList
+    val resultP1 = inputList.map(x => dayTwo.partOne(x)).foldLeft(0)((a,b) => a+b)
+    println("Answer to Part One is: " + resultP1)
+    val resultP2 = inputList.map(x => dayTwo.partTwo(x)).foldLeft(0)((a,b) => a+b)
+    println("Answer to Part Two is: " + resultP2)
   }
 }
