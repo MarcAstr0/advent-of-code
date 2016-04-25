@@ -13,4 +13,10 @@ class DayThreeSpec extends FlatSpec with Matchers {
     dayThree.partOne("^>v<") shouldEqual 4
     dayThree.partOne("^v^v^v^v^v") shouldEqual 2
   }
+
+  "partTwo()" should "calculate the examples correctly" in {
+    dayThree.partTwo("^v") shouldEqual 3
+    dayThree.partTwo("^>v<") shouldEqual 3
+    dayThree.partTwo("^v^v^v^v^v") shouldEqual 11
+  }
 }

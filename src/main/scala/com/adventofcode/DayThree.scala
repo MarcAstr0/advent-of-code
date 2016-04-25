@@ -33,6 +33,13 @@ class DayThree {
     }
     partOneRec(input.toList, visited, visited(0), 1)
   }
+
+  def partTwo(input: String): Int = {
+    val odds = input.toList.drop(0).sliding(1, 2).flatten.toList
+    val evens = input.toList.drop(1).sliding(1, 2).flatten.toList
+
+    0
+  }
 }
 
 object DayThree {
@@ -43,5 +50,6 @@ object DayThree {
     val dayThree = new DayThree
     println("--- Day 3: Perfectly Spherical Houses in a Vacuum ---")
     println("Answer to Part One is: " + dayThree.partOne(input))
+    println("Answer to Part Two is: " + dayThree.partTwo(input))
   }
 }
