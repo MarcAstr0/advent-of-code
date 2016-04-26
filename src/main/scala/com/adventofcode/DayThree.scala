@@ -1,7 +1,6 @@
 package com.adventofcode
 
 import java.io.InputStream
-
 import scala.annotation.tailrec
 
 /**
@@ -37,8 +36,21 @@ class DayThree {
   def partTwo(input: String): Int = {
     val odds = input.toList.drop(0).sliding(1, 2).flatten.toList
     val evens = input.toList.drop(1).sliding(1, 2).flatten.toList
+    val visited = List((0,0))
 
-    0
+    @tailrec
+    def partTwoRec(input: List[Char], visited: List[(Int, Int)], current: (Int, Int)): List[(Int, Int)] = {
+      if (input.length == 0) visited
+      else {
+        val newPos = move(input.head, current)
+        if (visited.contains(newPos))
+          partTwoRec(input.tail, visited, newPos)
+        else
+          partTwoRec(input.tail, visited ++ List(newPos), newPos)
+      }
+    }
+
+    (partTwoRec(odds, visited, visited(0)).union(partTwoRec(evens, visited, visited(0)))).distinct.length
   }
 }
 
