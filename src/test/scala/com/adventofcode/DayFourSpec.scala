@@ -9,8 +9,8 @@ class DayFourSpec extends FlatSpec with Matchers {
   val dayFour = new DayFour
 
   "partOne()" should "calculate the examples correctly" in {
-    dayFour.partOne("abcdef") shouldEqual 609043
-    dayFour.partOne("pqrstuv") shouldEqual 1048970
+    dayFour.partOne("abcdef", 1) shouldEqual 609043
+    dayFour.partOne("pqrstuv", 1) shouldEqual 1048970
   }
 
 }
