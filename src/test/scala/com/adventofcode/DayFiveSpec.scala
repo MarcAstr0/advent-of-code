@@ -28,12 +28,35 @@ class DayFiveSpec extends FlatSpec with Matchers {
     dayFive.containsSpecialStrings("haegwjzuvuyypxyu") shouldEqual true
   }
 
+  "hasPairAtLeastTwice()" should "return true if the string contains a pair of any two letters that appears at least twice in the string without overlapping" in {
+    dayFive.hasPairAtLeastTwice("xyxy") shouldEqual true
+    dayFive.hasPairAtLeastTwice("aabcdefgaa") shouldEqual true
+    dayFive.hasPairAtLeastTwice("aaa") shouldEqual false
+    dayFive.hasPairAtLeastTwice("qjhvhtzxzqqjkmpb") shouldEqual true
+    dayFive.hasPairAtLeastTwice("xxyxx") shouldEqual true
+    dayFive.hasPairAtLeastTwice("ieodomkazucvgmuy") shouldEqual false
+  }
+
+  "hasRepeatedLetter()" should "return true if the string contains at least one letter which repeats with exactly one letter between them" in {
+    dayFive.hasRepeatedLetter("xyx") shouldEqual true
+    dayFive.hasRepeatedLetter("abcdefeghi") shouldEqual true
+    dayFive.hasRepeatedLetter("aaa") shouldEqual true
+    dayFive.hasRepeatedLetter("uurcxstgmygtbstg") shouldEqual false
+  }
+
   "partOne()" should "calculate the examples correctly" in {
     dayFive.partOne("ugknbfddgicrmopn") shouldEqual true
     dayFive.partOne("aaa") shouldEqual true
     dayFive.partOne("jchzalrnumimnmhp") shouldEqual false
     dayFive.partOne("haegwjzuvuyypxyu") shouldEqual false
     dayFive.partOne("dvszwmarrgswjxmb") shouldEqual false
+  }
+
+  "partTwo()" should "calculate the examples correctly" in {
+    dayFive.partTwo("qjhvhtzxzqqjkmpb") shouldEqual true
+    dayFive.partTwo("xxyxx") shouldEqual true
+    dayFive.partTwo("uurcxstgmygtbstg") shouldEqual false
+    dayFive.partTwo("ieodomkazucvgmuy") shouldEqual false
   }
 
 }
